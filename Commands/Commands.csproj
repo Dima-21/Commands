@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,6 +95,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Exit.ico" />
+    <Resource Include="Image\Cut.ico" />
+    <Resource Include="Image\Copy.ico" />
+    <Resource Include="Image\Paste.ico" />
+    <Resource Include="Image\Save.ico" />
+    <Resource Include="Image\New.ico" />
+    <Resource Include="Image\Open.ico" />
+    <Resource Include="Image\Del.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

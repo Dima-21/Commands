@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Commands"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="450" Width="525">
+    <Window.CommandBindings>
+        <CommandBinding x:Name="NewCommand" Command="New" Executed="NewCommand_Executed"/>
+        <CommandBinding x:Name="OpenCommand" Command="Open" Executed="OpenCommand_Executed"/>
+        <CommandBinding x:Name="SaveCommand" Command="Save" Executed="SaveCommand_Executed"/>
+        <CommandBinding x:Name="ExitCommand" Command="Save" Executed="Exit"/>
+    </Window.CommandBindings>
+    
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" InputGestureText="Ctrl+N"></MenuItem>
+                <MenuItem Header="_Open" InputGestureText="Ctrl+O"></MenuItem>
+                <MenuItem Header="_Save" InputGestureText="Ctrl+S"></MenuItem>
+                <MenuItem Header="_Exit" InputGestureText="Ctrl+Q"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Cut" InputGestureText="Ctrl+X" Command="Cut"></MenuItem>
+                <MenuItem Header="C_opy" InputGestureText="Ctrl+C" Command="Copy"></MenuItem>
+                <MenuItem Header="_Paste" InputGestureText="Ctrl+V" Command="Paste"></MenuItem>
+                <MenuItem Header="_Delete" InputGestureText="Del" Command="Delete"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <ToolBar>
+            <ToolBar.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="3"/>
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="Width" Value="30"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Command="New" ToolTip="New">
+                <Image Source="Image/New.ico" />
+            </Button>
+            <Button Command="Open" ToolTip="Open">
+                <Image Source="Image/Open.ico" />
+            </Button>
+            <Button Command="Save" ToolTip="Save">
+                <Image Source="Image/Save.ico" />
+            </Button>
+            <Button  ToolTip="Exit">
+                <Image Source="Image/Exit.ico" />
+            </Button>
+            <Button Command="Cut" ToolTip="Cut">
+                <Image Source="Image/Cut.ico" />
+            </Button>
+            <Button Command="Copy" ToolTip="Copy">
+                <Image Source="Image/Copy.ico" />
+            </Button>
+            <Button Command="Paste" ToolTip="Paste">
+                <Image Source="Image/Paste.ico" />
+            </Button>
+            <Button Command="Delete" ToolTip="Delete">
+                <Image Source="Image/Del.ico" />
+            </Button>
+        </ToolBar>
         
-    </Grid>
+        <TextBox x:Name="textBox" Margin="20" Height="300" TextWrapping="Wrap" AcceptsReturn="True">
+            <TextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="New" InputGestureText="Ctrl+N" Command="New"></MenuItem>
+                    <MenuItem Header="Open" InputGestureText="Ctrl+O"></MenuItem>
+                    <MenuItem Header="Save" InputGestureText="Ctrl+S"></MenuItem>
+                    <MenuItem Header="Exit" InputGestureText="Ctrl+Q"></MenuItem>
+                    <MenuItem Header="Cut" InputGestureText="Ctrl+X" Command="Cut"></MenuItem>
+                    <MenuItem Header="Copy" InputGestureText="Ctrl+C" Command="Copy"></MenuItem>
+                    <MenuItem Header="Paste" InputGestureText="Ctrl+V" Command="Paste"></MenuItem>
+                    <MenuItem Header="Delete" InputGestureText="Del" Command="Delete"></MenuItem>
+                </ContextMenu>
+            </TextBox.ContextMenu>
+        </TextBox>
+    </StackPanel>
 </Window>
